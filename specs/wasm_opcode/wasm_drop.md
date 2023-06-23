@@ -15,7 +15,7 @@ A stack initalize empty with stack pointer to 1024. This opcode drops the top va
    - pc + 1
    - gas + 2
 2. Lookups: 1 busmapping lookup
-   - `value` is at the top of the stack
+   - `value` is at the top of the stack (read operation)
 
 ## Exceptions
 

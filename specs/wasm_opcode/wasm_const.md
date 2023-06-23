@@ -1,27 +1,27 @@
-# DROP opcode
+# CONST opcode
 
-- Drop opId = OpcodeId(**0x1a**)
+- I32Const opId = OpcodeId(**0x41**)
+- I64Const opId = OpcodeId(**0x42**)
 
 ## Procedure
 
-A stack initalize empty with stack pointer to 1024. This opcode drops the top value from the stack. A stack drop operation can only happen when stack is not empty, and it will increase by 1 of stack pointer.
-
+Pushes a 32/64-bit integer constant onto the stack.
 
 ## Constraints
 
 1. state transition:
    - rw_counter + 1
-   - stack_pointer + 1
+   - stack_pointer - 1
    - pc + 1
-   - gas + 2
+   - gas + 1
 2. Lookups: 1 busmapping lookup
-   - `value` is at the top of the stack
+   - `value` is written to at the top of the stack (write operation)
 
 ## Exceptions
 
-1. stack underflow: when stack is empty (**NTY**)
+1. stack overflow: when stack is full (**NTY**)
 2. gas out: remaining gas is not enough (**NTY**)
 
 ## Code
 
-See `src/zkevm_specs/wasm/execution/drop.py` (**NIY**))
+See `src/zkevm_specs/wasm/execution/const.py` (**NIY**))

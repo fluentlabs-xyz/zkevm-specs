@@ -20,8 +20,8 @@ One of the following procedure is done:
    - pc + 1
    - gas + 120
 2. Lookups: one of following busmapping lookup
-   - `value` is at the given index on the stack
-   - `value` is written to at the given index of the stack
+   - `value` is at the given index on the stack (read operation)
+   - `value` is written to at the given index of the stack (write operation)
 
 ## Exceptions
 

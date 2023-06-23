@@ -1,27 +1,29 @@
-# GLOBAL (GET/SET) opcode
+# Local (GET/SET) opcode
 
-- GetGlobal = OpcodeId(**0x23**)
-- SetGlobal = OpcodeId(**0x24**)
+- GetLocal = OpcodeId(**0x20**)
+- SetLocal = OpcodeId(**0x21**)
+- TeeLocal = OpcodeId(**0x22**)
 
 ## Procedure
 
 One of the following procedure is done:
- - Gets the value of a global variable at a specified index
- - Sets the value of a global variable at a specified index
-
+ - Gets the value of a local variable at a specified index
+ - Sets the value of a local variable at a specified index
+ - Sets the value of a local variable at a specified index and also pushes the value onto the stack
 
 ## Constraints
 
 1. state transition:
    - rw_counter + 2
-   - stack_pointer + sp 
-     - sp is +1 for SetGlobal
-     - sp is -1 for GetGlobal
    - pc + 1
+   - stack_pointer + sp
+      - sp is +1 for SetLocal
+      - sp is -1 for GetLocal
+      - sp is 0 for TeeLocal
    - gas + 120
 2. Lookups: one of following busmapping lookup
-   - `value` is at the given index on the stack
-   - `value` is written to at the given index of the stack
+   - `value` is at the given index on the stack (read operation)
+   - `value` is written to at the given index of the stack (write operation)
 
 ## Exceptions
 
@@ -30,4 +32,4 @@ One of the following procedure is done:
 
 ## Code
 
-See `src/zkevm_specs/wasm/execution/global.py` (**NIY**))
+See `src/zkevm_specs/wasm/execution/local.py` (**NIY**))
