@@ -87,8 +87,8 @@
        - `is_persistent`: Read if this tx will be reverted.
        - `callee_address`: Read the `callee_address` of this call.
      - stack:
-       - `key` is popped off the top of the stack
-       - `value` is popped off the top of the stack
+       - `key offset` is popped off the top of the stack
+       - `value offset` is popped off the top of the stack
      - storage:
        - The 32 bytes of new `value` are written to storage at `key`, with the previous `value` and `committed_value`
      - access_list: Write as `true` for `key`
