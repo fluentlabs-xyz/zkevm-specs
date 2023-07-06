@@ -30,7 +30,7 @@
        - 1 access_list write
        - 1 gas_refund writes
    - stack_pointer
-     - `SLOAD`: remains the same
+     - `SLOAD`: -2
      - `SSTORE`: -2
    - pc + 1
    - reversible_write_counter
