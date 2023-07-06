@@ -75,7 +75,7 @@
        - `is_persistent`: Read if this tx will be reverted.
        - `callee_address`: Read the `callee_address` of this call.
      - stack:
-       - `key` is popped off the top of the stack (not implemented correctly)
+       - `key` is popped off the top of the stack (**not implemented correctly**)
        - `value` is pushed on top of the stack
      - storage: The 32 bytes of `value` are read from storage at `key`
      - access_list: Write as `true` for `key`
